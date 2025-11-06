@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { getDb } from './db'
+import itemsRouter from './routes/items'
 
 dotenv.config()
 
@@ -25,6 +26,8 @@ app.get('/api/hello', async (_req, res) => {
     res.status(500).json({ error: err?.message || 'Unknown error' })
   }
 })
+
+app.use('/api/items', itemsRouter)
 
 app.listen(PORT, () => {
   console.log(`[server] listening on http://localhost:${PORT}`)
