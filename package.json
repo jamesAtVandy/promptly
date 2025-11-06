@@ -1,0 +1,15 @@
+{
+  "name": "promptlyV1",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c green,cyan \"npm run -w @promptlyV1/server dev\" \"npm run -w @promptlyV1/client dev\"",
+    "build": "npm run -w @promptlyV1/server build && npm run -w @promptlyV1/client build",
+    "start": "npm run -w @promptlyV1/server start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
